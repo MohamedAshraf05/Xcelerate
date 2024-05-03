@@ -1,0 +1,6 @@
+Xcelerate accounts : 
+
+1) admin account : 
+
+username : blogs 
+password : 123456
