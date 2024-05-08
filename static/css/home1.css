@@ -1,0 +1,24 @@
+#content{
+    max-width: 1200px;
+    padding: 100px 0;
+    position: absolute;
+    top: 50%;
+    left: 50.5%;
+    transform: translate(-50%,-50%);
+    font-size: 3rem;
+    color: white;
+    font-family: var(--roboto);
+  }
+  .container p {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .container h1 {
+    position: absolute;
+    top: -50px;
+    left: 19%;
+    font-size: 6rem;
+    font-family: var(--roboto);
+    line-height: 1.4;
+    color: black;
+}

@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <style>
+        :root {
+            --caveat:'Caveat' , sans-serif;
+            --roboto:'Roboto' , sans-serif;
+            --primary-color:rgb(77, 179, 162);
+            --nova: 'Nova square' , sans-serif;
+          }
+        body{
+            height: fit-content !important;
+        }
+        .card {
+          position: relative;
+          box-sizing: border-box;
+          width: 254px;
+          height: 190px;
+          background: black;
+          border: 1px solid black;
+          backdrop-filter: blur(6px);
+          border-radius: 17px;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.5s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          user-select: none;
+          font-weight: bolder;
+          color: White;
+        }
+        
+        .card:hover {
+          border: 1px solid black;
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgb(77, 179, 162);
+        }
+        
+        .card:active {
+            transform: scale(0.95) rotateZ(1.7deg);
+        }
+        h5{
+            color: rgb(77, 179, 162);
+        }
+        .section-title{
+            color: white;
+        }
+    </style>
+      
+</head>
+    <section id="schedule" class="section schedule">
+        <div class="container">
+            <div class="row">
+      <div class="col-md-12">
+          <center>
+          <h3 class="section-title">Lectures</h3>
+        </center>
+      </div>
+    </div>
+    <center>
+        
+      <div class="row">
+        {% if lecs %}
+        {% for speaker in lecs %}
+        <div class="col-md-3 mt-5 col-sm-6">
+                <div class="card">
+                    <h5 class="card-title"> {{speaker.title}} </h5>
+                    <a class="btn btn-light mt-4" href="{% url 'Edu:lecture' speaker.id %}">Watch Lecture</a>
+          <div class="time mt-4">
+            <i style="font-size: 11px;"> {{speaker.publish}} </i>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+      {% endif %}
+    </center>
+{% endblock content %}

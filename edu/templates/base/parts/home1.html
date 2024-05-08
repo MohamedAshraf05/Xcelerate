@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/home1.css' %}">
+</head>
+
+{% block content %}
+<div class="container" id="content">
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center" id="title">
+            <h1>Get The Best Free Online Courses</h1>
+        </div>
+        <div class="col-md-9 text-center">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla
+                dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+        </div>
+        <div class="container text-center">
+            <!-- Button Group -->
+            {% if user.is_authenticated %}
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                    <a class="btn btn-dark" href="{% url 'Edu:logout' %}">Logout</a>
+                </div>
+                <div class="col-auto">
+                    <a class="btn btn-primary" href="{% url 'Edu:schedule'%}">Schedule</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <a class="btn btn-dark" href="{% url 'Edu:login' %}">Login</a>
+                </div>
+                <div class="col-auto">
+                    <a class="btn btn-primary" href="{% url 'Edu:register' %}">Register</a>
+                </div>
+            </div>
+
+            {% endif %}
+          </div>
+    </div>
+</div>
+{% endblock content %}

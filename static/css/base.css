@@ -1,0 +1,67 @@
+:root {
+    --caveat:'Caveat' , sans-serif;
+    --roboto:'Roboto' , sans-serif;
+    --primary-color:rgb(77, 179, 162);
+    --nova: 'Nova square' , sans-serif;
+  }
+  *{
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: black !important;
+  } 
+  .first{
+    height:800px;
+    width: 320px;
+    background-color: inheritx ;
+    position: absolute;
+    top:0;
+    left:30px;
+    border-left: 2px solid rgba(95, 94, 94, 0.244);
+    border-right: 2px solid rgba(95, 94, 94, 0.244);
+    z-index: -1;
+    animation: lightEffect 4s ;
+  }
+  .second{
+    height:800px;
+    width: 320px;
+    background-color: inheritx ;
+    position: absolute;
+    left: 380px;
+    top:0;
+    border-left: 2px solid rgba(95, 94, 94, 0.244);
+    border-right: 2px solid rgba(95, 94, 94, 0.244);  
+    z-index: -2;
+    animation: lightEffect 4s ;
+  }
+  
+  .third{
+    height:800px;
+    width: 320px;
+    background-color: inheritx ;
+    position: absolute;
+    left: 730px;
+    top:0;
+    border-left: 2px solid rgba(95, 94, 94, 0.244);
+    border-right: 2px solid rgba(95, 94, 94, 0.244);  
+    z-index: -2;
+    animation: lightEffect 4s ;
+  }
+  
+  .fourth{
+    height:800px;
+    width: 320px;
+    background-color: inheritx ;
+    position: absolute;
+    left: 1080px;
+    top:0;
+    border-left: 2px solid rgba(95, 94, 94, 0.244);
+    border-right: 2px solid rgba(95, 94, 94, 0.244);
+    z-index: -2;
+    animation: lightEffect 4s ;
+  }
+
+  

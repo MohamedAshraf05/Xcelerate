@@ -1,45 +1,205 @@
 {% extends 'base/base.html' %}
 {% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Caveat:wght@400..700&family=Nova+Square&family=Poppins:ital,wght@0,200;1,200&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+</head>
 
 {% block content %}
 <style>
+  :root {
+    --caveat:'Caveat' , sans-serif;
+    --roboto:'Roboto' , sans-serif;
+    --primary-color:rgb(77, 179, 162);
+    --nova: 'Nova square' , sans-serif;
+    --rob : "Roboto Condensed", sans-serif;
+    --georgia: Georgia, 'Times New Roman', Times, serif 
+  }
+    h1{
+      font-size: 3rem;
+      font-family:var(--georgia);
+    }
     #content{
-        margin-top: 10%;
+        margin-top: 14%;
         color: white;
     }
+    #schedule {
+      width: 10em;
+      position: relative;
+      height: 3.5em;
+      border: 3px ridge rgb(77, 179, 162);
+      outline: none;
+      background-color: transparent;
+      color: white;
+      transition: 1s;
+      border-radius: 0.3em;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      padding-top:10px;
+      animation: TextEffect 6s;
+    }
+    
+    #schedule::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 3%;
+      width: 95%;
+      height: 40%;
+      background-color: inherit;
+      transition: 0.5s;
+      transform-origin: center;
+    }
+    
+    #schedule::before {
+      content: "";
+      transform-origin: center;
+      position: absolute;
+      top: 80%;
+      left: 3%;
+      width: 95%;
+      height: 40%;
+      background-color: inherit;
+      transition: 0.5s;
+    }
+    
+    #schedule:hover::before, #schedule:hover::after {
+      transform: scale(0)
+    }
+    
+    #schedule:hover {
+      box-shadow: inset 0px 0px 25px rgb(77, 179, 162);
+    }
+    .section{
+      color: White;
+      position: absolute;
+      left: 5%;
+      top: 100%;
+    }
+    .list-arrow-right{
+      position: absolute !important;
+      left:50% !important;
+    }
+    .speaker{
+      position: absolute;
+      top: 170%;
+      width: fit-content;
+      color: white;
+    }
+    #section-title{
+      position: absolute;
+      top: 160%;
+      color: white;
+    }
+.speaker img{
+  width: 300px;
+  height: 300px;
+}
+  h1 , h2{
+    animation: TextEffect 6s;
+  }
+  @keyframes TextEffect {
+    0%{
+      color: black;
+    }
+    50% , 100% {
+      color: white;
+    }
+  }
 </style>
-<div class="container " id="content">
+<div class="container" id="content">
     <div class="row justify-content-center">
-        <div class="col-md-12 text-center">
-            <h1>Get The Best Free Online Courses</h1>
+        <div class="col-md-12 text-center title">
+            <h1>Xcelerate</h1>
         </div>
-        <div class="col-md-9 text-center">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla
-                dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+        <div class="col-md-9 mb-3 text-center">
+            <h2> Get your courses for free online</h2>
         </div>
         <div class="container text-center">
             <!-- Button Group -->
             {% if user.is_authenticated %}
               <div class="row justify-content-center">
-                <div class="col-auto">
-                  <a class="btn btn-dark" href="{% url 'Edu:logout' %}">Logout</a>
-                </div>
-                <div class="col-auto">
-                  <a class="btn btn-primary" href="{% url 'Edu:schedule'%}">Schedule</a>
+                <div class="col-12">
+                  <a class="btn" id="schedule" href="{% url 'Edu:schedule'%}">Schedule</a>
                 </div>
               </div>
               {% else %}
               <div class="row justify-content-center">
-                <div class="col-auto">
-                  <a class="btn btn-dark" href="{% url 'Edu:login' %}">Login</a>
-                </div>
-                <div class="col-auto">
-                  <a class="btn btn-primary" href="{% url 'Edu:register' %}">Register</a>
+                <div class="col-12">
+                  <a href="{% url 'Edu:login'%}" id="schedule" class="btn"> Start for free </a>
                 </div>
               </div>
-
             {% endif %}
           </div>
     </div>
 </div>
+<section id="about" class="section about">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-6">
+
+              <h3 class="section-title">About Us</h3>
+
+              <p>You've inspired new consumer, racked up click-thru's, blown-up brand enes. We can't give you back the weekends you worked, or erase the pain ebeing forced to make the logo bigger. But if you submit your best work we ajusts might be able to give the chance to show you best digital marketing.</p>
+
+              <figure>
+                  <img alt="" class="img-responsive" src="{% static 'images/about-us.jpg' %}">
+              </figure>
+
+          </div><!-- /.col-sm-6 -->
+
+          <div class="col-sm-6">
+
+              <h3 class="section-title multiple-title mt-auto">What is Our Goal?</h3>
+
+              <p>You've inspired new consumer, racked up click-thru's, blown-up brand enes. 
+              We can't give you back the weekends you worked, or erase the pain ebeing forced to make the logo bigger. 
+              But if you submit your best work we ajusts might be able to give the chance to show you best digital marketing.</p>
+
+              <ul class="list-arrow-right">
+
+                <li>Learn from the best Asian Social Media Experts &amp; Case Studies</li>
+                <li>Have dedicated 2-to-1 meetings with the experts</li>
+                <li>Reach more consumers for less by learning new digital media skills</li>
+                <li>Save money when spending in online advertising</li>
+              
+              </ul>
+
+          </div><!-- /.col-sm-6 -->
+      </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+
+<section id="speakers" class=" speakers">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+
+              <h3 class="section-title" id="section-title" >Speakers</h3>
+          
+          </div>
+      </div>
+      {% for speaker in speakers%}
+      <div class="row">
+        <div class="row">
+          {% for speaker in speakers %}
+          <div class="col-md-3 col-sm-6 mt-5 "> <!-- Adjust column size to fit 3 columns per row -->
+              <div class="speaker">
+                  <figure>
+                      <img alt="" class="img-responsive center-block" src="{{ speaker.photo.url }}">
+                  </figure>
+                  <h4>{{ speaker.Name }}</h4>
+                  <p>{{ speaker.Job }}</p>
+              </div><!-- /.speaker -->
+          </div> <!--/.col-->
+          {% endfor %}
+      </div> <!-- /.row -->
+      
+      </div> <!--/.row-->
+      {% endfor %}
 {% endblock content %}

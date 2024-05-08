@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView , DetailView
 from django.shortcuts import render , redirect
-from .models import Lectures
+from .models import Lectures , Speakers
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
@@ -15,20 +15,9 @@ from django.utils.decorators import method_decorator
 # Create your views here.
 
 class ScheduleView(LoginRequiredMixin , ListView):
-    model = Lectures
-    template_name = 'base/parts/schedule.html'
-    context_object_name = 'lec'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        """ 
-        this commented line for filtering the data according to 
-        the user  who is logged in and showing only his lectures
-        """
-      #  context['lec'] = context['lec'].filter(author=self.request.user)
-        context['count'] = context['lec'].filter(status=False).count()
-        return context
-    
+    queryset = Lectures.objects.all()
+    template_name = 'base/parts/Lectures.html'
+    context_object_name = 'lecs'
 
 class LecDetails(DetailView):
     model = Lectures
@@ -64,4 +53,6 @@ def logout(request):
     AuthLogout(request)
     return redirect('Edu:login')
 def home(request):
-    return render(request , 'base/parts/home.html')
+    speakers = Speakers.objects.all()
+    context = {'speakers' : speakers}
+    return render(request , 'base/parts/home.html' , context)

@@ -11,7 +11,8 @@
         padding: 40px;
         margin: 20px auto;
         transform: translate(-50%, -55%);
-        background: #ffffff;
+        background:transparent;
+        backdrop-filter: blur(10px);
         box-sizing: border-box;
         box-shadow: 0 15px 25px rgba(0,0,0,.6);
         border-radius: 10px;
@@ -20,7 +21,7 @@
       .login-box p:first-child {
         margin: 0 0 30px;
         padding: 0;
-        color: black;
+        color:white;
         text-align: center;
         font-size: 1.5rem;
         font-weight: bold;
@@ -35,10 +36,10 @@
         width: 100%;
         padding: 10px 0;
         font-size: 16px;
-        color: black;
+        color:white;
         margin-bottom: 30px;
         border: none;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid rgb(77, 179, 162);
         outline: none;
         background: transparent;
       }
@@ -49,7 +50,7 @@
         left: 0;
         padding: 10px 0;
         font-size: 16px;
-        color: black;
+        color:white;
         pointer-events: none;
         transition: .5s;
       }
@@ -58,7 +59,7 @@
       .login-box .user-box input:valid ~ label {
         top: -20px;
         left: 0;
-        color: black;
+        color:white;
         font-size: 12px;
       }
       
@@ -67,7 +68,7 @@
         display: inline-block;
         padding: 10px 20px;
         font-weight: bold;
-        color: black;
+        color:white;
         font-size: 16px;
         text-decoration: none;
         text-transform: uppercase;
@@ -174,40 +175,41 @@
       }
       
       .login-box a.a2 {
-        color: black;
+        color:white;
         text-decoration: none;
       }
       
       .login-box a.a2:hover {
         background: transparent;
-        color: #aaa;
+        color: rgb(77, 179, 162);
         border-radius: 5px;
       }
-      .btn {
-        width: 6.5em;
+      .btn{
+        width: 5.5em;
         height: 2.3em;
         margin: 0.5em;
-        background: black;
         color: white;
-        border: none;
+        border-radius: 5px;
+        border: 2px solid rgb(77, 179, 162);
+        background-color: transparent;
         border-radius: 0.625em;
         font-size: 20px;
         font-weight: bold;
         cursor: pointer;
         position: relative;
         z-index: 1;
-        overflow: hidden;
+        overflow: hidden;-
        }
        
-       input:hover {
-        color: black;
-        background-color:#e8e8e8;
+       .btn:hover {
+        color:black;
+        background-color:rgb(77, 179, 162);
         transition:0.3s;
        }
        
 </style>
 <div class="login-box">
-    <p style="color: black;">Login</p>
+    <p style="color:white;">Login</p>
     <form method="post" action="{% url 'Edu:login' %}">
         {% csrf_token %}
       <div class="user-box">

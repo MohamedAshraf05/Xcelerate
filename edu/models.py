@@ -25,3 +25,9 @@ class Lectures(models.Model):
     lecture = models.FileField(upload_to='static/videos/' , blank=True , null=True)
     def __str__(self):
         return self.title
+    
+
+class Speakers(models.Model):
+    Name = models.CharField(max_length=200)
+    Job = models.CharField(max_length=200)
+    photo = models.FileField(upload_to="static/images/" , blank=True , null=True)
