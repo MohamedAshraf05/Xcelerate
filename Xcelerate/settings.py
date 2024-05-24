@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'edu',
+    'rest_framework',
+    'edu.apps.EduConfig',
+    'XcelerateApi.apps.XcelerateapiConfig',
 ]
 
 MIDDLEWARE = [

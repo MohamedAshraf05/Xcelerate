@@ -167,31 +167,31 @@
                 <li>Have dedicated 2-to-1 meetings with the experts</li>
                 <li>Reach more consumers for less by learning new digital media skills</li>
                 <li>Save money when spending in online advertising</li>
-              
+                
               </ul>
-
-          </div><!-- /.col-sm-6 -->
+              
+            </div><!-- /.col-sm-6 -->
       </div><!-- /.row -->
   </div><!-- /.container -->
 </section>
 
 <section id="speakers" class=" speakers">
   <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-
-              <h3 class="section-title" id="section-title" >Speakers</h3>
-          
+    <div class="row">
+      <div class="col-md-12">
+        
+        <h3 class="section-title" id="section-title" >Speakers</h3>
+        
           </div>
       </div>
-      {% for speaker in speakers%}
-      <div class="row">
+        {% for speaker in speakers%}
         <div class="row">
+          <div class="row">
           {% for speaker in speakers %}
-          <div class="col-md-3 col-sm-6 mt-5 "> <!-- Adjust column size to fit 3 columns per row -->
-              <div class="speaker">
-                  <figure>
-                      <img alt="" class="img-responsive center-block" src="{{ speaker.photo.url }}">
+          <div class="col-md-4 col-sm-6 mt-5 "> <!-- Adjust column size to fit 3 columns per row -->
+            <div class="speaker">
+              <figure>
+                <img alt="" class="img-responsive center-block" src="{{ speaker.photo.url }}">
                   </figure>
                   <h4>{{ speaker.Name }}</h4>
                   <p>{{ speaker.Job }}</p>

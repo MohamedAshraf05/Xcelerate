@@ -6,14 +6,19 @@ from .models import Lectures , Speakers
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic.edit import CreateView , UpdateView ,DeleteView , FormView 
 from django.contrib.auth import logout as AuthLogout , login as AuthLogin , authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt , csrf_protect
-from django.utils.decorators import method_decorator
+from django.views.generic.edit import (
+    CreateView , 
+    UpdateView ,
+    DeleteView, 
+    FormView
+)  
 # Create your views here.
 
+# Templates views
 class ScheduleView(LoginRequiredMixin , ListView):
     queryset = Lectures.objects.all()
     template_name = 'base/parts/Lectures.html'

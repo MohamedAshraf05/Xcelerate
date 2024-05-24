@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , include('edu.urls'))
+    path('api/' , include("XcelerateApi.urls")),
+    path('' , include('edu.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
